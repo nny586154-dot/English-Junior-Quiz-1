@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>English Junior Level Quiz 1</title>
+<style>
+:root{--bg:#f3f0fb;--card:#fff;--ink:#241f35;--mute:#6b6580;--line:#e2dcf2;--soft:#f6f2ff;--ok:#1e8a4c;--okbg:#e3f5ea;--bad:#c0392b;--badbg:#fbe9e7;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15121d;--card:#211d2d;--ink:#efeaf9;--mute:#a8a2be;--line:#3a3450;--soft:#2a2440;--ok:#5fd08a;--okbg:#1d3326;--bad:#ff8a7a;--badbg:#3a211d}}
+:root[data-theme="dark"]{--bg:#15121d;--card:#211d2d;--ink:#efeaf9;--mute:#a8a2be;--line:#3a3450;--soft:#2a2440;--ok:#5fd08a;--okbg:#1d3326;--bad:#ff8a7a;--badbg:#3a211d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Times New Roman",Times,serif;font-weight:500;font-size:1.05rem;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding:14px}
+.bar{position:sticky;top:0;z-index:9;background:var(--card);border-bottom:1px solid var(--line);padding:8px 14px;display:flex;align-items:center;gap:10px;font-weight:800;font-size:.85rem}
+.track{flex:1;height:10px;background:var(--line);border-radius:6px;overflow:hidden}.track div{height:100%;width:0;background:linear-gradient(90deg,#6d3fc0,#d6336c,#e67e22);border-radius:6px;transition:width .25s}
+.head{background:linear-gradient(135deg,#6d3fc0,#d6336c 60%,#e67e22);color:#fff;border-radius:20px 20px 0 0;padding:26px 20px;text-align:center}
+.head .an{font-size:2.2rem;letter-spacing:6px}.head .an span{display:inline-block;animation:bob 2.4s ease-in-out infinite}.head .an span:nth-child(2n){animation-delay:.4s}.head .an span:nth-child(3n){animation-delay:.8s}
+@keyframes bob{50%{transform:translateY(-7px)}}@media (prefers-reduced-motion:reduce){.head .an span{animation:none}}
+.head h1{font-family:"Times New Roman",Times,serif;font-weight:800;margin:6px 0 2px;font-size:1.9rem;line-height:1.15}.head p{margin:0;opacity:.95;font-size:.95rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin:16px 0;box-shadow:0 2px 10px rgba(80,50,140,.08)}
+.info{border-radius:0 0 20px 20px;margin-top:0}
+.sc{border-top:6px solid var(--c)}
+.sh{display:flex;align-items:center;gap:12px;margin-bottom:6px}.ic{width:46px;height:46px;border-radius:14px;background:var(--c);display:grid;place-items:center;font-size:1.5rem;flex:none}
+h2{margin:0;font-family:"Times New Roman",Times,serif;font-size:1.25rem;color:var(--c);line-height:1.2}.sub{color:var(--mute);font-size:.88rem;margin:0}
+label.f{display:block;font-size:.82rem;color:var(--mute);margin:10px 0 3px;font-weight:700}
+input[type=text]{width:100%;padding:11px;border:2px solid var(--line);border-radius:10px;background:var(--soft);color:var(--ink);font:inherit}input[type=text]:focus{outline:none;border-color:#6d3fc0}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:520px){.row{grid-template-columns:1fr}}
+.q{margin-top:18px;padding:14px;background:var(--soft);border-radius:14px}
+.q .n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--c);color:#fff;font-weight:800;font-size:.85rem;margin-right:8px}
+.q p{margin:0 0 6px;font-weight:800}
+.pic0{font-size:3.2rem;text-align:center;margin:4px 0 8px;line-height:1.1}
+.opts{display:grid;gap:8px;margin-top:8px}.opts.g{grid-template-columns:repeat(auto-fit,minmax(104px,1fr))}
+.opt{display:flex;align-items:center;gap:10px;padding:11px 13px;border:2px solid var(--line);border-radius:12px;cursor:pointer;background:var(--card);transition:.12s;min-height:48px}
+.opt:hover{border-color:var(--c);transform:translateY(-1px)}.opt.sel{border-color:var(--c);background:var(--soft);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 25%,transparent)}
+.opt.pic{flex-direction:column;justify-content:center;text-align:center;gap:2px;padding:12px 6px}.em{font-size:2.5rem;line-height:1.1}
+.opt input{accent-color:var(--c);width:18px;height:18px;flex:none}.opt.pic input{position:absolute;opacity:0}
+.opt.ok{border-color:var(--ok);background:var(--okbg)}.opt.bad{border-color:var(--bad);background:var(--badbg)}
+.passage{background:var(--soft);border-left:5px solid var(--c);border-radius:10px;padding:12px 14px;margin:10px 0;font-size:1.02rem}.passage .big{font-size:2.2rem}
+.vp{background:var(--soft);border-radius:12px;padding:10px 12px;margin:8px 0;display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:end;font-size:.8rem;font-weight:700}
+.vp select{width:100%;padding:8px;border-radius:8px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit}@media(max-width:560px){.vp{grid-template-columns:1fr}}
+.play{background:var(--c);color:#fff;border:0;border-radius:24px;padding:10px 20px;font:inherit;font-weight:800;cursor:pointer;margin-bottom:8px}.play.on{outline:3px solid color-mix(in srgb,var(--c) 40%,transparent)}.play.t{background:#6d3fc0;margin:0}
+textarea{width:100%;padding:11px;border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit;resize:vertical}textarea:focus{outline:none;border-color:#2f7fd1}
+.fb{font-size:.85rem;margin-top:6px;font-weight:700;color:var(--mute)}
+button.main{background:linear-gradient(135deg,#6d3fc0,#d6336c);color:#fff;border:0;border-radius:14px;padding:14px 34px;font:inherit;font-weight:800;font-size:1.05rem;cursor:pointer}button.main:disabled{opacity:.5}
+.result{text-align:center;border-top:6px solid #e6a800}.big2{font-size:3rem}.score{font-family:"Times New Roman",Times,serif;font-size:2.8rem;font-weight:800;color:#6d3fc0;line-height:1.1}
+.sec{display:flex;justify-content:space-between;padding:6px 4px;border-bottom:1px dashed var(--line);text-align:left}
+</style>
+</head>
+<body>
+<div class="bar"><span id="pt">0 / 30</span><div class="track"><div id="pb"></div></div></div>
+<div class="wrap">
+<div class="head"><div class="an"><span>🦁</span><span>🐘</span><span>🐧</span><span>🦒</span><span>🐯</span></div><h1>English Junior Level Quiz 1</h1><p>Units 1–4 · My Friends · At School · Our Classroom · My Things</p><p style="margin-top:8px;font-weight:800;font-style:italic">Prepared By: T. Channy Chrong</p></div>
+<div class="card info">
+<div class="row"><div><label class="f">Student name *</label><input type="text" id="nm" autocomplete="off"></div><div><label class="f">Class / Date</label><input type="text" id="cl" autocomplete="off"></div></div>
+<p class="sub" style="margin-top:12px">📝 Instructions: Choose one answer for each question. There are 5 sections with 6 questions each (30 questions, 1 point each) and a short paragraph in Writing. Press Submit at the end.</p>
+</div>
+<div id="quiz"></div>
+<div class="card" style="text-align:center"><p id="warn" class="sub" style="margin-bottom:8px"></p><button class="main" id="sb">Submit Quiz ✅</button></div>
+<div id="res"></div>
+<p style="text-align:center;color:var(--mute);font-size:.9rem;margin:18px 0 8px">Prepared By: T. Channy Chrong · English For Education</p>
+</div>
+<script>
+var TF=["True","False"],E=function(e,t){return{e:e,t:t}};
+var S=[
+{t:"Section 1: Vocabulary",ic:"📚",c:"#6d3fc0",d:"Look and choose the correct answer.",q:[
+{i:"📏",q:"What is this?",o:[E("📏","ruler"),E("🖍️","crayon"),E("📓","notepad")],a:0},
+{i:"🙋‍♀️",q:"The girl has a question. What does she do?",o:[E("❓","ask"),E("📕","close"),E("🖼️","show")],a:0},
+{i:"🎨",q:"Which word is a color?",o:[E("🟣","purple"),E("🍎","apple"),E("⌚","watch")],a:0},
+{i:"🔢",q:"Which number is “fifteen”?",o:["5","15","50"],a:1},
+{i:"🍎",q:"Look at the picture. True or False: This is an eraser.",o:TF,a:1},
+{i:"🏫",q:"Where do children play at school?",o:[E("🤸","playground"),E("🚪","cupboard"),E("📋","board")],a:0}]},
+{t:"Section 2: Grammar",ic:"✏️",c:"#e67e22",d:"Choose the correct answer.",q:[
+{i:"👋",q:"What’s your name? ___ Andy.",o:["I’m","I have","Is"],a:0},
+{i:"👧",q:"___ her name? Her name’s Sara.",o:["What’s","What are","Who"],a:0},
+{i:"✏️✏️",q:"What ___ these? They’re pencils.",o:["is","are","am"],a:1},
+{i:"🍎",q:"It’s ___ apple.",o:["a","an","the"],a:1},
+{i:"🎂",q:"True or False: We say “I have eight” to talk about age.",o:TF,a:1},
+{i:"⚽",q:"The ball ___ blue.",o:["is","are","am"],a:0}]},
+{t:"Section 3: Reading",ic:"📖",c:"#1e9e8a",d:"Read the text. Then answer the questions.",p:"Hello! I’m Liya. I’m nine years old. This is my classroom. I have twelve books and two pens. I have a pink crayon. The ball is blue. Let’s play!",pi:"👧📚🖍️",q:[
+{q:"How old is Liya?",o:["eight","nine","ten"],a:1},
+{q:"How many books does Liya have?",o:["ten","twelve","two"],a:1},
+{q:"What color is the crayon?",o:[E("🩷","pink"),E("🔵","blue"),E("🟡","yellow")],a:0},
+{i:"⚽",q:"True or False: The ball is blue.",o:TF,a:0},
+{i:"🖊️",q:"True or False: Liya has twelve pens.",o:TF,a:1},
+{q:"What does Liya say at the end?",o:["Let’s play!","Let’s paint!","Let’s read!"],a:0}]},
+{t:"Section 4: Listening",ic:"🎧",c:"#d6336c",d:"Press the button and listen carefully. You will hear it two times.",vp:1,q:[
+{s:"Hi, I’m Max.",q:"What is his name?",o:["Max","Ben","Andy"],a:0},
+{s:"How old are you? I’m ten years old.",dl:1,q:"How old is the child?",o:["8","10","12"],a:1},
+{s:"Let’s paint!",q:"What do they want to do?",o:[E("🎨","paint"),E("⚽","play"),E("📖","read")],a:0},
+{s:"What color is the ball? The ball is blue.",dl:1,i:"⚽",q:"True or False: The ball is red.",o:TF,a:1},
+{s:"What are these? They’re pencils.",dl:1,q:"What are they?",o:[E("✏️","pencils"),E("🖊️","pens"),E("🖍️","crayons")],a:0},
+{s:"Sit down, please.",q:"What does the teacher say?",o:[E("🪑","sit down"),E("🧍","stand up"),E("🙋","ask")],a:0}]},
+{t:"Section 5: Writing Skills",ic:"✍️",c:"#2f7fd1",d:"Choose the correct sentence or word. Then write your paragraph.",para:1,q:[
+{i:"🎂",q:"Which sentence tells your age?",o:["I’m nine years old.","I have nine years old.","I nine years old."],a:0},
+{i:"👧",q:"Which sentence is correct?",o:["My name’s Sara.","My name Sara.","Name’s my Sara."],a:0},
+{i:"🖊️🖊️",q:"One pen. Two ___.",o:["pen","pens","penes"],a:1},
+{i:"❓",q:"Put the words in order: name / What’s / your / ?",o:["Your name what’s?","What’s your name?","Name your what’s?"],a:1},
+{i:"📝",q:"True or False: “It’s a eraser.” is a correct sentence.",o:TF,a:1},
+{i:"🖊️",q:"What color is the pen? ___ black.",o:["It’s","It","Is"],a:0}]}
+];
+
+var MAIL="",ans={},tot=0,done=false,L={},qz=document.getElementById("quiz"),tx=function(o){return typeof o==="object"?o.t:o};
+S.forEach(function(s,si){
+ var c=document.createElement("div");c.className="card sc";c.style.setProperty("--c",s.c);
+ var h="<div class='sh'><div class='ic'>"+s.ic+"</div><div><h2>"+s.t+"</h2><p class='sub'>"+s.d+"</p></div></div>";
+ if(s.p)h+="<div class='passage'><div class='big'>"+s.pi+"</div>"+s.p+"</div>";
+ if(s.vp)h+="<div class='vp'><div>🎙️ Voice<select id='vs'></select></div><div>🐢 Speed<select id='sp'><option value='.7'>Slow (easy)</option><option value='.85' selected>Normal</option></select></div><button class='play t' id='tv'>🔊 Test voice</button></div>";
+ s.q.forEach(function(x,qi){
+  var id=si+"_"+qi,g=typeof x.o[0]==="object";tot++;
+  h+="<div class='q'><p><span class='n'>"+(qi+1)+"</span>"+x.q+"</p>";
+  if(x.s){L[id]=x;h+="<button class='play' data-id='"+id+"'>🔊 Play audio</button>";}
+  if(x.i)h+="<div class='pic0'>"+x.i+"</div>";
+  h+="<div class='opts"+(g?" g":"")+"'>";
+  x.o.forEach(function(o,oi){var e=g?o.e:"";h+="<label class='opt"+(g?" pic":"")+"' id='o"+id+"_"+oi+"'><input type='radio' name='q"+id+"' value='"+oi+"'>"+(e?"<span class='em'>"+e+"</span>":"")+"<span>"+tx(o)+"</span></label>";});
+  h+="</div><div class='fb' id='f"+id+"'></div></div>";
+ });
+ if(s.para)h+="<div class='q'><p><span class='n'>✍️</span>Paragraph: What can you see at your school? Write a short paragraph.</p><p class='sub' style='margin-bottom:8px'>Write 4–6 sentences. Think about the school things, actions, colors and numbers you learned in Units 1–4. Try to start with: At my school, I can see…</p><textarea id='para' rows='6' placeholder='At my school, I can see …'></textarea><div class='fb'>⭐ This paragraph is marked by your teacher (10 marks).</div></div>";c.innerHTML=h;qz.appendChild(c);
+});
+function prog(){var n=Object.keys(ans).length;document.getElementById("pb").style.width=(n/tot*100)+"%";document.getElementById("pt").textContent=n+" / "+tot;}
+qz.addEventListener("change",function(e){
+ if(done||e.target.type!=="radio")return;
+ ans[e.target.name.slice(1)]=+e.target.value;
+ document.querySelectorAll("[name='"+e.target.name+"']").forEach(function(r){r.parentNode.classList.toggle("sel",r.checked);});prog();
+});
+/* ---- Listening voice ---- */
+var VS=[],tok=0,ss=window.speechSynthesis;
+function score(v){var n=v.name,s=0;if(/natural|online/i.test(n))s+=6;if(/google/i.test(n))s+=4;if(/samantha|aria|jenny|ava|allison|karen|serena|moira|daniel|libby|sonia|zira/i.test(n))s+=3;if(/en[-_]US/i.test(v.lang))s+=2;else if(/en[-_](GB|AU)/i.test(v.lang))s+=1;if(/espeak|compact|novelty/i.test(n))s-=6;return s;}
+function loadV(){if(!ss)return;VS=ss.getVoices().filter(function(v){return /^en/i.test(v.lang)}).sort(function(a,b){return score(b)-score(a)});var s=document.getElementById("vs");if(!s)return;var keep=s.value;s.innerHTML="";VS.forEach(function(v,i){s.add(new Option(v.name+" ("+v.lang+")",i))});if(keep)s.value=keep;}
+if(ss){loadV();ss.onvoiceschanged=loadV;}
+function say(txt,dl,btn){
+ if(!ss){alert("Audio is not supported on this device. Please ask your teacher to read: "+txt);return;}
+ tok++;var my=tok;ss.cancel();
+ document.querySelectorAll(".play").forEach(function(b){b.classList.remove("on")});if(btn)btn.classList.add("on");
+ var parts=txt.match(/[^.?!]+[.?!]/g)||[txt],seq=[];
+ for(var r=0;r<(btn&&btn.id==="tv"?1:2);r++)parts.forEach(function(p,i){seq.push({p:p.trim(),i:i,gap:(r&&!i)?1800:650})});
+ var v=VS[document.getElementById("vs").value],rate=+document.getElementById("sp").value;
+ (function run(k){
+  if(my!==tok)return;if(k>=seq.length){if(btn)btn.classList.remove("on");return;}
+  var u=new SpeechSynthesisUtterance(seq[k].p);if(v){u.voice=v;u.lang=v.lang}else u.lang="en-US";
+  u.rate=rate;u.pitch=dl?(seq[k].i%2?0.85:1.1):1;
+  var nx=function(){setTimeout(function(){run(k+1)},seq[k+1]?seq[k+1].gap:0)};u.onend=nx;u.onerror=nx;ss.speak(u);
+ })(0);
+}
+qz.addEventListener("click",function(e){
+ var b=e.target.closest(".play");if(!b)return;
+ if(b.id==="tv")say("Hello! Let’s listen and learn English.",0,b);else{var x=L[b.dataset.id];say(x.s,x.dl,b);}
+});
+document.getElementById("sb").onclick=function(){
+ var w=document.getElementById("warn");if(ss)ss.cancel();
+ if(!document.getElementById("nm").value.trim()){w.textContent="Please write your name first.";window.scrollTo(0,0);return;}
+ var un=tot-Object.keys(ans).length;
+ if(un>0&&!confirm(un+" question(s) are not answered. Submit anyway?"))return;
+ done=true;this.disabled=true;w.textContent="";
+ var sc=0,rows="",sp=[];
+ S.forEach(function(s,si){var p=0;
+  s.q.forEach(function(x,qi){var id=si+"_"+qi,ok=ans[id]===x.a;if(ok){p++;sc++;}
+   document.querySelectorAll("[name='q"+id+"']").forEach(function(r){r.disabled=true;});
+   document.getElementById("o"+id+"_"+x.a).classList.add("ok");
+   if(ans[id]!==undefined&&!ok)document.getElementById("o"+id+"_"+ans[id]).classList.add("bad");
+   var f=document.getElementById("f"+id);f.style.color=ok?"var(--ok)":"var(--bad)";f.textContent=ok?"✓ Correct!":"✗ Correct answer: "+tx(x.o[x.a]);
+  });
+  sp.push(s.t+": "+p+" / "+s.q.length);rows+="<div class='sec'><span>"+s.ic+" "+s.t+"</span><b>"+p+" / "+s.q.length+"</b></div>";
+ });
+ var pc=Math.round(sc/tot*100),m=pc>=90?"Excellent work!":pc>=70?"Very good!":pc>=50?"Good effort. Keep practicing!":"Please review Units 5–8 and try again.",tr=pc>=90?"🏆":pc>=70?"🎉":pc>=50?"👍":"💪",st="";
+ for(var i=0;i<Math.max(1,Math.round(pc/20));i++)st+="⭐";
+ document.getElementById("res").innerHTML="<div class='card result'><div class='big2'>"+tr+"</div><h2 style='color:#6d3fc0'>Results</h2><p class='sub'>"+document.getElementById("nm").value.trim().replace(/</g,"&lt;")+(document.getElementById("cl").value?" · "+document.getElementById("cl").value.replace(/</g,"&lt;"):"")+"</p><div class='score'>"+sc+" / "+tot+"</div><p style='margin:4px 0'>"+st+"</p><p><b>"+pc+"%</b> · "+m+"</p>"+rows+"<p class='sub' style='margin-top:12px'>Scroll up to review: green = correct, red = your wrong choice.</p></div>";
+ var pa=document.getElementById("para");pa.disabled=true;
+ var nm=document.getElementById("nm").value.trim(),cl=document.getElementById("cl").value.trim();
+ var rp="ENGLISH JUNIOR LEVEL QUIZ 1 - UNITS 1-4\nStudent: "+nm+"\nClass/Date: "+cl+"\nScore: "+sc+" / "+tot+" ("+pc+"%)\n"+sp.join("\n")+"\n\nParagraph (What I can see at my school):\n"+(pa.value.trim()||"(not written)")+"\n\nPrepared By: T. Channy Chrong";
+ var box=document.createElement("div");box.className="card";
+ box.innerHTML="<h2 style='color:#6d3fc0'>📧 Send to your teacher</h2><p class='sub' style='margin:4px 0 8px'>Copy your result and send it to your teacher.</p><textarea id='rp' rows='9' readonly></textarea><div style='display:flex;gap:8px;flex-wrap:wrap;margin-top:10px'><button class='main' id='cp' style='padding:10px 22px'>📋 Copy result</button>"+(MAIL?"<a style='display:inline-block;background:linear-gradient(135deg,#6d3fc0,#d6336c);color:#fff;border-radius:14px;font-weight:800;padding:10px 22px;text-decoration:none' href='mailto:"+MAIL+"?subject="+encodeURIComponent("Quiz result - "+nm)+"&body="+encodeURIComponent(rp)+"'>✉️ Email teacher</a>":"")+"</div>";
+ document.getElementById("res").appendChild(box);
+ var rb=document.getElementById("rp");rb.value=rp;
+ document.getElementById("cp").onclick=function(){rb.select();try{navigator.clipboard.writeText(rp)}catch(e){document.execCommand("copy")}this.textContent="✅ Copied!";};
+ document.getElementById("res").scrollIntoView({behavior:"smooth"});
+};
+</script>
+</body>
+</html>
